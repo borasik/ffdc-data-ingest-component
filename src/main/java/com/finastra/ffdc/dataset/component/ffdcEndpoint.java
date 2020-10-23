@@ -25,14 +25,50 @@ public class ffdcEndpoint extends DefaultEndpoint {
     @UriParam(defaultValue = "10")
     private int option = 10;
 
-    public String password;
+    public String environment;
+    public String id;
+    public String secret;
+    public String dataSetId;
+    public String fileName;
 
-    public String getPassword(){
-        return this.password;
+    public String getFileName(){
+        return this.fileName;
     }
 
-    public void setPassword(String password){
-        this.password = password;
+    public void setFileName(String fileName){
+        this.fileName = fileName;
+    }
+
+    public String getDataSetId(){
+        return this.dataSetId;
+    }
+
+    public void setDataSetId(String dataSetId){
+        this.dataSetId = dataSetId;
+    }
+
+    public String getEnvironment(){
+        return this.environment;
+    }
+
+    public void setEnvironment(String environment){
+        this.environment = environment;
+    }
+
+    public String getId(){
+        return this.id;
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public String getSecret(){
+        return this.secret;
+    }
+
+    public void setSecret(String secret){
+        this.secret = secret;
     }
 
     private static final Logger Logger = LoggerFactory.getLogger(ffdcEndpoint.class);

@@ -28,8 +28,8 @@ public class ffdcComponentTest extends CamelTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("timer://foo?fixedRate=true&period=1000")
-                  .to("ffdc://bar?password=12")
+                from("timer://foo?fixedRate=true&period=1000&repeatCount=1")
+                  .to("ffdc://bar?environment=lobdev&id=1988806a-8113-4cba-ab81-22b5eada6d99&secret=5a13861f-f1fd-441f-9683-72cee3f9b99e&dataSetId=trades-v1-27a8371b-9317-43ed-82c0-39835cf1ec03&fileName=2019-02-13T23:00:00.000Z.json")
                   .to("mock:result");
             }
         };
