@@ -3,12 +3,21 @@ package com.finastra.ffdc.dataset.component;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
+import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.finastra.ffdc.dataset.component.services.DataIngestionService;
+
+// @RunWith(SpringRunner.class)
+// @SpringBootTest(classes = DataIngestionService.class)
+// @RunWith(CamelSpringBootRunner.class)
 public class ffdcComponentTest extends CamelTestSupport {
 
     private final EventBusHelper eventBusHelper = EventBusHelper.getInstance();

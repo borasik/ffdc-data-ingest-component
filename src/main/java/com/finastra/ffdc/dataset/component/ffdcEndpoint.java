@@ -23,7 +23,7 @@ public class ffdcEndpoint extends DefaultEndpoint {
     @UriPath @Metadata(required = true)
     private String name;
     @UriParam(defaultValue = "10")
-    private int option = 10;
+    private int option = 10;    
 
     public String environment;
     public String id;
@@ -73,11 +73,11 @@ public class ffdcEndpoint extends DefaultEndpoint {
 
     private static final Logger Logger = LoggerFactory.getLogger(ffdcEndpoint.class);
 
-    public ffdcEndpoint() {
+    public ffdcEndpoint() {      
     }
 
-    public ffdcEndpoint(String uri, ffdcComponent component) {
-        super(uri, component);
+    public ffdcEndpoint(String uri, ffdcComponent component) {        
+        super(uri, component);        
     }
 
     public Producer createProducer() throws Exception {

@@ -4,18 +4,21 @@ import com.finastra.ffdc.dataset.component.services.DataIngestionService;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.support.DefaultProducer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.finastra.ffdc.dataset.component.dtos.SasResponse;
 
 public class ffdcProducer extends DefaultProducer {
 
     private ffdcEndpoint endpoint;
-    private final DataIngestionService dataIngestionService;
+
+    @Autowired
+    private DataIngestionService dataIngestionService;
 
     public ffdcProducer(ffdcEndpoint endpoint) {
         super(endpoint);
         this.endpoint = endpoint;
-        this.dataIngestionService = new DataIngestionService();
+        // this.dataIngestionService = new DataIngestionService();        
     }
 
     public void process(Exchange exchange) throws Exception {
