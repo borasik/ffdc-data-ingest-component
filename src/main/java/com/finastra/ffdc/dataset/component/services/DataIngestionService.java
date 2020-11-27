@@ -32,17 +32,12 @@ import org.slf4j.LoggerFactory;
 @Data
 public class DataIngestionService {
 
-    private static final Logger Logger = LoggerFactory.getLogger(DataIngestionService.class);
-
-    private final RestTemplate restTemplate;
-
-    DataIngestionService(RestTemplate restTemplate){
-        this.restTemplate = restTemplate;
-    }
+    private static final Logger Logger = LoggerFactory.getLogger(DataIngestionService.class);     
 
     public String getAccessToken(String environment, String id, String secret)
             throws JsonMappingException, JsonProcessingException {
-        // RestTemplate restTemplate = new RestTemplate();
+
+        RestTemplate restTemplate = new RestTemplate();
         ObjectMapper mapper = new ObjectMapper();
 
         String body = MessageFormat.format("grant_type=client_credentials&scope=openid&client_id={0}&client_secret={1}",
@@ -63,7 +58,7 @@ public class DataIngestionService {
 
     public SasResponse getSasToken(String dataSetId, String fileName, String token, String environment) {
 
-        // RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
 
         HashMap<String, String> body = new HashMap<String, String>();
         body.put("dataSetId", dataSetId);
@@ -86,7 +81,7 @@ public class DataIngestionService {
 
     public void ingestBlob(String blob, SasResponse sasResponse) throws URISyntaxException {        
         
-        // RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders requestHeaders = new HttpHeaders();        
         requestHeaders.set("Content-Type", "application/json");
@@ -98,7 +93,7 @@ public class DataIngestionService {
     }
 
     public void closeIngestionJob(String ingestionJob, String environment, String token) throws URISyntaxException {
-        // RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
 
         HashMap<String, String> body = new HashMap<String, String>();
         body.put("status", "COMPLETE_UPLOAD");
